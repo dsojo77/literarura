@@ -29,7 +29,8 @@ public class LibroService {
     }
 
     public Libro guardar(Libro libro) {
-        if (libroRepository.findByTituloContainingIgnoreCase(libro.getTitulo()).isEmpty()) {
+        List<Libro> librosExistentes = libroRepository.findByTituloContainingIgnoreCase(libro.getTitulo());
+        if (librosExistentes.isEmpty()) {
             return libroRepository.save(libro);
         }
         throw new RuntimeException("No se puede registrar el mismo libro más de una vez");

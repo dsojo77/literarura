@@ -80,6 +80,17 @@ public class Libro {
         return Objects.hash(id, titulo, idioma, autor, anio);
     }
 
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", idioma='" + idioma + '\'' +
+                ", autor='" + autor + '\'' +
+                ", anio=" + anio +
+                '}';
+    }
+
     // Getters y Setters
     // hashCode y equals
 

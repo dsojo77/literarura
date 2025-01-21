@@ -71,16 +71,19 @@ public class MenuController {
         System.out.print("Ingrese el título del libro: ");
         String titulo = scanner.nextLine();
         String url = "https://gutendex.com/books?search=" + titulo;
+
         try {
             var response = restTemplate.getForObject(url, String.class);
-            if (response != null) {
-                System.out.println("Resultado: " + response);
-                // TODO: Parsear y guardar en la BD si es necesario
+            if (response != null && !response.isEmpty()) {
+                // TODO: Mapear la respuesta JSON a un objeto Libro
+                Libro libro = new Libro();
+                libroService.guardar(libro);
+                System.out.println("Libro guardado exitosamente.");
             } else {
-                System.out.println("No se encontraron resultados.");
+                System.out.println("Libro no encontrado.");
             }
         } catch (Exception e) {
-            System.out.println("Error al buscar el libro: " + e.getMessage());
+            System.out.println("Error al buscar o guardar el libro: " + e.getMessage());
         }
     }
 
