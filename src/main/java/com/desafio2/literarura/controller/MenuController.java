@@ -48,7 +48,7 @@ public class MenuController {
 
     private void mostrarOpciones() {
         System.out.println("\nMenú:");
-        System.out.println("1. Buscar libros por título");
+        System.out.println("1. Buscar libros por títulos");
         System.out.println("2. Listar libros registrados en BD");
         System.out.println("3. Listar autores registrados en BD");
         System.out.println("4. Listar autores vivos en un determinado año en BD");
